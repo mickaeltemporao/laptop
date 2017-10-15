@@ -81,6 +81,8 @@ case "$SHELL" in
     ;;
 esac
 
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 gem_install_or_update() {
   if gem list "$1" --installed > /dev/null; then
     gem update "$@"
@@ -202,12 +204,6 @@ if [ -f "$HOME/.laptop.local" ]; then
   # shellcheck disable=SC1090
   . "$HOME/.laptop.local"
 fi
-
-# Installing Oh-My-Zsh
-echo "Terminal setup"
-chsh -s $(which zsh)
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-
 
 # Setting System Preferences ===================================================
 # Close any open System Preferences panes, to prevent them from overriding
